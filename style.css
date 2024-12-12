@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css?family=Exo+2:400,700&subset=cyrillic");
+html {
+  box-sizing: border-box;
+}
+
+img {
+  position: absolute;
+}
+
+#top-cover,
+#bottom-cover {
+    position: fixed; /* Use fixed positioning to cover the whole viewport */
+    left: 0;
+    right: 0;
+    width: 100vw; /* Use viewport width to ensure full coverage */
+    height: 50vh; /* Each cover takes up half of the viewport height */
+    background-color: black;
+    overflow: hidden; /* Prevents scrolling within the covers */
+    transition: transform 0.5s ease-in-out; /* Smooth transition for the pull-apart effect */
+}
+
+#top-cover {
+    z-index: 4; /* Ensure the top cover is above the bottom cover */
+    top: 0;
+}
+
+
+#bottom-cover {
+    z-index: 3; /* Bottom cover below the top cover */
+    bottom: 0;
+}
+
+#start {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 5;
+}
+
+@keyframes fadeInOut {
+  100% {opacity: 0;}
+  50% {opacity: 1;}
+  0% {opacity: 0;}
+}
+
+#start {
+  animation-name: fadeInOut;
+  animation-duration: 2.4s; /* Total duration of one cycle */
+  animation-iteration-count: infinite; /* Repeat forever */
+  animation-timing-function: ease-in-out;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Exo 2", sans-serif;
+  line-height: 1.5;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding: 0 16.66% 50px;
+  width: 100%;
+}
+
+article {
+  position: relative;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.timeline__nav {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  transition: top 0.3s ease-out;
+}
+.timeline__nav ul {
+  list-style: none;
+  list-style-position: inside;
+  margin: 15px 0;
+}
+.timeline__nav ul li {
+  margin: 15px 0;
+  padding-left: 0;
+  list-style-type: none;
+  color: #bfc1c3;
+  border-bottom: 1px dotted rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.timeline__nav ul li.active {
+  font-weight: bold;
+  color: #f94125;
+  border-bottom: 1px dotted transparent;
+  transform: scale(1.2);
+}
+.timeline__nav ul li:hover {
+  color: #000;
+}
